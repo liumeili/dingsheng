@@ -1,7 +1,8 @@
 <template>
     <div class="fotter">
         <ul class="fotter-Ul">
-            <li v-for="(item,index) in title" :key="index"  :style="item.selected?'color:#26a2ff':''" @click="navChoice(item.id,item.name)"><i :class="item.icons"></i>
+            <li v-for="(item,index) in title" :key="index"  :style="item.selected?'color:#FF372E':''" @click="navChoice(item.id,item.name)">
+                <img :src="item.selected ? item.icon_y : item.icon_n" alt="">
                 <p>{{item.title}}</p>
             </li>
         </ul>
@@ -18,35 +19,40 @@ export default {
                     id:1,
                     title:'大厅',
                     selected:true,
-                    icons:'iconfont iconconversation_icon',
+                    icon_y:require('../assets/images/index_Y.png'),
+                    icon_n:require('../assets/images/index_N.png'),
                     name:'chat'
                 },
                 {
                     id:2,
                     title:'所有游戏',
                     selected:false,
-                    icons:'iconfont iconlianxiren',
+                    icon_y:require('../assets/images/game_Y.png'),
+                    icon_n:require('../assets/images/game_N.png'),
                     name:'contact'
                 },
                 {
                     id:3,
-                    title:'充值',
+                    // title:'充值',
                     selected:false,
-                    icons:'iconfont iconrenwu',
+                    icon_y:require('../assets/images/topUp.gif'),
+                    icon_n:require('../assets/images/topUp.gif'),
                     name:'task'
                 },
                 {
                     id:4,
                     title:'活动',
                     selected:false,
-                    icons:'iconfont iconshezhi',
+                    icon_y:require('../assets/images/activity_Y.png'),
+                    icon_n:require('../assets/images/activity_N.png'),
                     name:'set'
                 },
                 {
-                    id:4,
+                    id:5,
                     title:'我的',
                     selected:false,
-                    icons:'iconfont iconshezhi',
+                    icon_y:require('../assets/images/my_Y.png'),
+                    icon_n:require('../assets/images/my_N.png'),
                     name:'set'
                 }
             ]
@@ -100,14 +106,15 @@ export default {
     .fotter{
         width:100%;
         margin: auto;
-        font-size:.26rem;
+        font-size:18px;
         text-align: center;
         background: #fff;
         border-top:1px solid #eaeaea;
         position: fixed;
         bottom: 0;
         color: rgb(165, 165, 165);;
-        height: 1.1rem;
+        height: 98px;
+        left: 0;
     }
     .fotter-Ul{
         display: flex;
@@ -117,10 +124,16 @@ export default {
     .fotter-Ul li{
         text-align: center;
     }
-    .fotter-Ul i{
-       font-size: 0.38rem;  
-       margin-top:0.2rem;
+    .fotter-Ul img{
+       width: 44px;
+       height: 44px;
        display: block;
+       margin: auto;
+       margin-top:10px;
+    }
+    .fotter-Ul li:nth-child(3) img{
+        width: 74px;
+        height: 74px;
     }
     .fotter-Ul p{
       margin:0.05rem  0 0.15rem 0;
